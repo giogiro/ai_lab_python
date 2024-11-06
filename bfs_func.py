@@ -1,4 +1,5 @@
 from collections import deque
+import random
 from node_class import Node
 import utils
 
@@ -17,7 +18,11 @@ def bfs(matrix, start, goal):
         
         node = frontier.popleft()   #perchè append mette alla fine della coda, e io prendo all'inizio
         
-        for position in utils.actions(matrix, node):
+        valid_moves = utils.actions(matrix, node)
+        #Mixo le mosse valide, così da non seguire sempre gli stessi pattern
+        random.shuffle(valid_moves)
+    
+        for position in valid_moves:
             child = Node(position[0], position[1], node)
         
             if(child not in visited):
