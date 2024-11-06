@@ -1,19 +1,19 @@
 class Node :
     
-    def __init__(self, x, y, padre=None):
-        self.x = x
-        self.y = y
+    def __init__(self, row, col, padre=None):
+        self.row = row
+        self.col = col
         self.padre = padre
         
     def __eq__(self, other):
         # Controlla se l'altro oggetto è della stessa classe e se ha le stesse coordinate
         if isinstance(other, Node):
-            return self.x == other.x and self.y == other.y
+            return self.row == other.row and self.col == other.col
         return False
     
     def __hash__(self):
-        # Combina x e y per generare un hash univoco per questo oggetto
-        return hash((self.x, self.y))
+        # Combina row e y per generare un hash univoco per questo oggetto
+        return hash((self.row, self.col))
 
-    def setPadre(self, x, y):
-        self.padre = Node(x,y)
+    def setPadre(self, row, col):
+        self.padre = Node(row, col)

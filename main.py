@@ -1,5 +1,6 @@
 from game_class import Game
 
+#creo qualche Game, al costruttore passo la lista di liste
 g1 = Game([
         list("#  #######"),
         list("#        #"),
@@ -123,7 +124,8 @@ g4 = Game([
 
 # print(g1.path_toString())
 
-g4.init_start(0, 1)
+
+g4.init_start(0, 1)     #inizializzo lo start ()
 g4.init_goal(-2,-1)
 g4.BFS()
 g4.stampa()
