@@ -1,41 +1,46 @@
 from collections import deque
+import heapq
+import queue
 import random
 from node_class import Node
 import utils
 
-def bfs(matrix, start, goal):
+def greedy_best_first(matrix, start, goal):
     
     goal_found = False
     #izializzo visited e path
     path = []
     visited = set()
     
-    frontier = deque()
-    #visited = set() #non serve, ho gia un attributo __visited in questa classe
-    
-    frontier.append(start)
-    
+    # La lista delle priorità, che simula la coda di priorità
+    frontier = []
+    heapq.heappush(frontier, (0, start))  # (priorità, nodo), la priorità è la euristica 0 per il nodo di partenza
+        
     while frontier and not goal_found:
         
-        node = frontier.popleft()   #perchè append mette alla fine della coda, e io prendo all'inizio
+        _, node = heapq.heappop(frontier)
         
         valid_moves = utils.actions(matrix, node)
         #Mixo le mosse valide, così da non seguire sempre gli stessi pattern
         random.shuffle(valid_moves)
     
         for position in valid_moves:
+            
+            
             child = Node(position[0], position[1], node)
-        
+            
+            child.setHeuristic(goal, "euclidean")
+            
             if(child not in visited):
                 visited.add(child)
 
                 if(child == goal):
                     path = utils.crea_path(child, start, goal)   #ho trovato il goal
-                    goal_found = True
-                    break
+                    goal_found = True  # Imposta il flag a True per uscire dal ciclo
+                    break   #esce dal ciclo for
                 
                 if(child not in frontier):
-                    frontier.append(child)
+                    heapq.heappush(frontier, (child.heur, child))  # Aggiungi alla coda di priorità (heap)
 
-    print("\nBFS:")
+    print("\nGreedy Best First Search:")
     utils.stampa_risultato(matrix, start, goal, path, visited)

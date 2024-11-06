@@ -159,12 +159,12 @@ g6 = Game([
 # g1.init_goal(8,9)
 # g1.BFS()
 
-g5.init_start(0, 1)     #inizializzo lo start ()
-g5.init_goal(-2,-1)
+g4.init_start(0, 1)     #inizializzo lo start ()
+g4.init_goal(-2,-1)
 #questa funzione, se ho settato goal e start, mi esegue la bfs, stampa la matrice risultato,
 #i nodi visitati, la lunghezza del percorso
 #g4.BFS() 
 
-g5.BFS()
-g5.DFS()
-
+g4.BFS()
+#g4.DFS()
+g4.GREEDY_BF()

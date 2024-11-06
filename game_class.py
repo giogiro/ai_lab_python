@@ -1,6 +1,7 @@
 from node_class import Node
 from bfs_func import bfs
 from dfs_func import dfs
+from greedy_best_first_func import greedy_best_first
 class Game :
     
     def __init__(self, matrix):
@@ -59,6 +60,15 @@ class Game :
                 
     
     
-
+    
+    #fa bfs(dal file bfs_func.py) che esegue e stampa direttamente il risultato
+    def GREEDY_BF(self):
+        #se non ho inizializzato le posizioni di start e goal ritorno None
+        if self.__goal == None or self.__start == None:
+            print("<GREEDY_BF> non hai inserito il goal o lo start")
+    
+        else:
+            greedy_best_first(self.__matrix, self.__start, self.__goal)
+                
             
             
