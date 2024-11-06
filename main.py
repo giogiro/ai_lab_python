@@ -158,16 +158,11 @@ g6 = Game([
 # g1.init_me(0, 1)
 # g1.init_goal(8,9)
 # g1.BFS()
-# g1.stampa()
-
-# print(g1.path_toString())
-
 
 g6.init_start(0, 1)     #inizializzo lo start ()
 g6.init_goal(-2,-1)
 #questa funzione, se ho settato goal e start, mi esegue la bfs, stampa la matrice risultato,
 #i nodi visitati, la lunghezza del percorso
-
 #g4.BFS() 
 
 g6.BFS()
