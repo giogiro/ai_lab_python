@@ -21,6 +21,7 @@ def dfs(matrix, start, goal):
             path = utils.crea_path(node, start, goal)
     
     #in qualsiasi caso stampo il risultato
+    print("DFS:")
     utils.stampa_risultato(matrix, start, goal, path, visited)
     
 
@@ -35,10 +36,11 @@ def recursive_dfs(matrix, curr, goal, path, visited):
         
         if child not in visited:
             visited.add(child)
-            
+      
             if child == goal:
                 return child
             
+
             result = recursive_dfs(matrix, child, goal, path, visited)
             
             #se ho trovato un nodo == goal, ritorno, se no provo le altre mosse di questo nodo

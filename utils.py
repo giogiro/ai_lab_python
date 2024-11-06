@@ -1,5 +1,6 @@
 from node_class import Node
 from colorama import init, Fore, Back, Style
+import copy
 
 def crea_path(node, start, goal):  #percorro il percorso al contrario, da goal->goal.padre->padre->padre->padre...->None
     path = []
@@ -30,7 +31,8 @@ def actions(matrix, node):
 
 #stampa UNA COPIA della matrice, alla quale aggiungo S, G, nodi visitati e percorso
 def stampa_risultato(matrix, start, goal, path, visited):
-    mod_matrix = matrix
+    mod_matrix = copy.deepcopy(matrix)
+
     #metto S e G nelle posizioni di start e goal
     mod_matrix[start.row][start.col] = Fore.RED + "S" + Fore.BLUE #coloro S di rosso
     mod_matrix[goal.row][goal.col] = Fore.RED + "G" + Fore.BLUE #coloro G di rosso

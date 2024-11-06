@@ -35,4 +35,5 @@ def bfs(matrix, start, goal):
                 if(child not in frontier):
                     frontier.append(child)
     
+    print("\nBFS:")
     utils.stampa_risultato(matrix, start, goal, path, visited)
