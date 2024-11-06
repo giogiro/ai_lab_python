@@ -155,16 +155,36 @@ g6 = Game([
     list("###############")
 ])
 
+g7 = Game([
+    list("# ##########################################################"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                             #                            #"),
+    list("#                             #                            #"),
+    list("#                             #          ###################"),
+    list("#                             #                            #"),
+    list("#                             #                            #"),
+    list("#                             #                            #"),
+    list("#                             #                             "),
+    list("############################################################")
+])
 # g1.init_me(0, 1)
 # g1.init_goal(8,9)
 # g1.BFS()
 
-g4.init_start(0, 1)     #inizializzo lo start ()
-g4.init_goal(-2,-1)
+g7.init_start(0, 1)     #inizializzo lo start ()
+g7.init_goal(-2,-1)
 #questa funzione, se ho settato goal e start, mi esegue la bfs, stampa la matrice risultato,
 #i nodi visitati, la lunghezza del percorso
 #g4.BFS() 
 
-g4.BFS()
+g7.BFS()
 #g4.DFS()
-g4.GREEDY_BF(heuristic = "manhattan")   #oppure heuristic = "euclidean"
+g7.GREEDY_BF(heuristic = "manhattan")   #oppure heuristic = "euclidean"
