@@ -1,7 +1,7 @@
 from node_class import Node
 from collections import deque
 from colorama import init, Fore, Back, Style
-
+from bfs_func import bfs
 class Game :
     
     def __init__(self, matrix):
@@ -68,31 +68,7 @@ class Game :
         Style.RESET_ALL
 
 
-    #actions ritorna una lista di liste ( [row1,col1], [row2, col2], ... ) queste ultime sono
-    #posizioni valide per fare la mossa
-    def actions(self, node):
-        possible_actions = []
-        if(node.row > 0  and self.__matrix[node.row - 1][node.col] != "#"): #provo nodo sopra
-            possible_actions.append([node.row-1, node.col])
-        if(node.row < len(self.__matrix)-1 and self.__matrix[node.row + 1][node.col] != "#"):   #provo nodo sotto
-            possible_actions.append([node.row+1, node.col])
-        if(node.col > 0 and self.__matrix[node.row][node.col-1] != "#"):    #provo nodo a sx
-            possible_actions.append([node.row, node.col-1])
-        if(node.col < len(self.__matrix[0])-1 and self.__matrix[node.row][node.col+1] != "#"):  #provo nodo a dx
-            possible_actions.append([node.row, node.col+1])
-        
-        return possible_actions
-    
-    
-    def crea_path(self, node):  #percorro il percorso al contrario, da goal->goal.padre->padre->padre->padre...->None
-        curr = node
-        while curr != None:
-            if(curr != self.__start and curr != self.__goal):   #se il nodo è il goal o start non lo aggiungo
-                self.__path.append(curr)
-            curr = curr.padre
-        
-        self.__path.reverse()   #e alla fine inverto 
-        
+
     #ritorna il path come stringa
     def path_toString(self):
         res = "Percorso: "
@@ -106,39 +82,7 @@ class Game :
         return len(self.__visited)
     
     def BFS(self):
-        
-        #se non ho inizializzato le posizioni di start e goal ritorno None
-        if self.__goal == None or self.__start == None:
-            print("<BFS> non hai inserito il goal o lo start")
-            return None
-        
-        #reinizializzo visited e path, perchè sto rifacendo la ricerca
-        self.__path = []
-        self.__visited = set()
-        
-        frontier = deque()
-        #visited = set() #non serve, ho gia un attributo __visited in questa classe
-        
-        frontier.append(self.__start)
-        
-        while frontier:
-            
-            node = frontier.popleft()   #perchè append mette alla fine della coda, e io prendo all'inizio
-            
-            for position in self.actions(node):
-                child = Node(position[0], position[1], node)
-            
-                if(child not in self.__visited):
-                    self.__visited.add(child)
-
-                    if(child == self.__goal):
-                        self.crea_path(child)
-                        return
-                    
-                    if(child not in frontier):
-                        frontier.append(child)
-        
-        return None       
+        self.__path, self.__visited = bfs(self.__matrix, self.__start, self.__goal)
                 
     
     
