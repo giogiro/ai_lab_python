@@ -153,4 +153,7 @@ g5.init_goal(-2,-1)
 #i nodi visitati, la lunghezza del percorso
 g5.BFS() 
 
+#TODO: devo ancora implementare
+g5.DFS()
+
 

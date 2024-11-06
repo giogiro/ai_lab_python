@@ -1,6 +1,6 @@
 from node_class import Node
 from bfs_func import bfs
-
+from dfs_func import dfs
 class Game :
     
     def __init__(self, matrix):
@@ -46,6 +46,16 @@ class Game :
     
         else:
             bfs(self.__matrix, self.__start, self.__goal)
+     
+                
+    #fa bfs(dal file bfs_func.py) che esegue e stampa direttamente il risultato
+    def DFS(self):
+        #se non ho inizializzato le posizioni di start e goal ritorno None
+        if self.__goal == None or self.__start == None:
+            print("<BFS> non hai inserito il goal o lo start")
+    
+        else:
+            dfs(self.__matrix, self.__start, self.__goal)
                 
     
     
