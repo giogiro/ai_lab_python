@@ -62,13 +62,13 @@ class Game :
     
     
     #fa bfs(dal file bfs_func.py) che esegue e stampa direttamente il risultato
-    def GREEDY_BF(self):
+    def GREEDY_BF(self, heuristic):
         #se non ho inizializzato le posizioni di start e goal ritorno None
         if self.__goal == None or self.__start == None:
             print("<GREEDY_BF> non hai inserito il goal o lo start")
     
         else:
-            greedy_best_first(self.__matrix, self.__start, self.__goal)
+            greedy_best_first(self.__matrix, self.__start, self.__goal, heuristic)
                 
             
             

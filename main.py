@@ -167,4 +167,4 @@ g4.init_goal(-2,-1)
 
 g4.BFS()
 #g4.DFS()
-g4.GREEDY_BF()
+g4.GREEDY_BF(heuristic = "manhattan")   #oppure heuristic = "euclidean"

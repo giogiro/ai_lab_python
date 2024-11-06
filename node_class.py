@@ -33,3 +33,7 @@ class Node :
         if type == "euclidean":
             self.heur = math.sqrt( (self.row - goal.row )**2 + (self.col - goal.col)**2)
         
+        elif type == "manhattan":
+            # Distanza di Manhattan
+            self.heur = abs(self.row - goal.row) + abs(self.col - goal.col)
+        

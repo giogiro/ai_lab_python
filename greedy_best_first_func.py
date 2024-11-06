@@ -5,7 +5,7 @@ import random
 from node_class import Node
 import utils
 
-def greedy_best_first(matrix, start, goal):
+def greedy_best_first(matrix, start, goal, heuristic):
     
     goal_found = False
     #izializzo visited e path
@@ -29,7 +29,7 @@ def greedy_best_first(matrix, start, goal):
             
             child = Node(position[0], position[1], node)
             
-            child.setHeuristic(goal, "euclidean")
+            child.setHeuristic(goal, heuristic)
             
             if(child not in visited):
                 visited.add(child)
