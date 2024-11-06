@@ -149,9 +149,8 @@ g5 = Game([
 
 g5.init_start(0, 1)     #inizializzo lo start ()
 g5.init_goal(-2,-1)
-g5.BFS()
-g5.stampa()
-
-print("Nodi visitati:", g5.size_visited())
+#questa funzione, se ho settato goal e start, mi esegue la bfs, stampa la matrice risultato,
+#i nodi visitati, la lunghezza del percorso
+g5.BFS() 
 
 

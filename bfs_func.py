@@ -1,14 +1,11 @@
 from collections import deque
 from node_class import Node
 import utils
+
 def bfs(matrix, start, goal):
     
-    #se non ho inizializzato le posizioni di start e goal ritorno None
-    if goal == None or start == None:
-        print("<BFS> non hai inserito il goal o lo start")
-        return [], set()
-    
-    #reinizializzo visited e path, perchè sto rifacendo la ricerca
+    #izializzo visited e path
+    path = []
     visited = set()
     
     frontier = deque()
@@ -27,9 +24,10 @@ def bfs(matrix, start, goal):
                 visited.add(child)
 
                 if(child == goal):
-                    return utils.crea_path(child, start, goal), visited   #ho trovato il goal
+                    path = utils.crea_path(child, start, goal)   #ho trovato il goal
+                    break
                 
                 if(child not in frontier):
                     frontier.append(child)
     
-    return [], set()  #non c'è una soluzione.
+    utils.stampa_risultato(matrix, start, goal, path, visited)
