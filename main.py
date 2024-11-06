@@ -76,6 +76,27 @@ g3 = Game([
 
 g4 = Game([
     list("# ##########################################################"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                          #"),
+    list("#                                                           "),
+    list("############################################################")
+])
+
+g5 = Game([
+    list("# ##########################################################"),
     list("#     #          #               #     #   #   #           #"),
     list("# ### ############## ### ##### ### ### ### # ### # #########"),
     list("# #       #      #     #     #     #     #   #   #     #   #"),
@@ -117,6 +138,7 @@ g4 = Game([
     list("# #   #     #     #     #   #     #   #        #     #      "),
     list("############################################################")
 ])
+
 # g1.init_me(0, 1)
 # g1.init_goal(8,9)
 # g1.BFS()
@@ -125,11 +147,11 @@ g4 = Game([
 # print(g1.path_toString())
 
 
-g4.init_start(0, 1)     #inizializzo lo start ()
-g4.init_goal(-2,-1)
-g4.BFS()
-g4.stampa()
+g5.init_start(0, 1)     #inizializzo lo start ()
+g5.init_goal(-2,-1)
+g5.BFS()
+g5.stampa()
 
-print("Nodi visitati:", g4.size_visited())
+print("Nodi visitati:", g5.size_visited())
 
 
